@@ -1,0 +1,21 @@
+<div *ngIf="cargado" class="container animated fadeIn">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let planeta of planetas, let index = index">
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title">{{ planeta.name }}</h5>
+          <ul style="list-style-type: none">
+            <li>Model: {{ planeta.model }}</li>
+            <li>Manufacturer: {{ planeta.manufacturer }}</li>
+            <li>Cost in credits: {{ planeta.cost_in_credits }}</li>
+            <li>Length: {{ planeta.length }}</li>
+            <li>Max atmosphering speed: {{ planeta.max_atmosphering_speed }}</li>
+            <li>Crew: {{ planeta.crew }}</li>
+            <li>Passengers: {{ planeta.passengers }}</li>
+          </ul>
+          <a class="btn btn-outline-primary w-100" [routerLink]="['/planeta', index+1]">Detalle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

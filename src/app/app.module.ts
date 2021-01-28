@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Rutas
 import { APP_ROUTING } from './app.routes'
+
+// Servicios
+import { DataService } from './services/data.service'
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -10,7 +14,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PersonajesComponent } from './personajes/personajes.component';
-import { NavesComponent } from './naves/naves.component';
+import { PersonajeComponent } from './personaje/personaje.component';
+import { PlanetasComponent } from './planetas/planetas.component';
+import { PlanetaComponent } from './planeta/planeta.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +25,18 @@ import { NavesComponent } from './naves/naves.component';
     FooterComponent,
     HomeComponent,
     PersonajesComponent,
-    NavesComponent
+    PersonajeComponent,
+    PlanetasComponent,
+    PlanetaComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

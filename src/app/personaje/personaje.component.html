@@ -1,0 +1,17 @@
+<div *ngIf="cargado" class="container animated fadeIn">
+  <div class="card my-2">
+    <div class="card-body">
+      <h5 class="card-title">{{ personaje.name }}</h5>
+      <ul style="list-style-type: none">
+        <li>Height: {{ personaje.height }}</li>
+        <li>Body mass: {{ personaje.mass }} kg</li>
+        <li>Hair color: {{ personaje.hair_color }}</li>
+        <li>Skin color: {{ personaje.skin_color }}</li>
+        <li>Eyes color: {{ personaje.eye_color }}</li>
+        <li>Birth year: {{ personaje.birth_year }}</li>
+        <li>Gender: {{ personaje.gender }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<a [routerLink]="['/personajes']"><i class="back fas fa-chevron-left fa-7x"></i></a>
