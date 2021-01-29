@@ -30,7 +30,7 @@ import { PlanetaComponent } from './planeta/planeta.component';
     PlanetaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     APP_ROUTING
   ],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, Personaje } from '../services/data.service'
 import { ActivatedRoute } from '@angular/router'
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-personaje',
@@ -13,7 +14,8 @@ export class PersonajeComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _dataService: DataService
+    private _dataService: DataService,
+    private metaService: Meta
   ) {
     this.activatedRoute.params.subscribe( data => {
       this._dataService.getPersonaje(data['index']).subscribe( (data: any) => {
@@ -21,6 +23,7 @@ export class PersonajeComponent implements OnInit {
         this.cargado = true;
       })
     })
+    this.metaService.updateTag({ property: 'og:title', content: 'Titulo personaje' });
   }
 
   ngOnInit(): void {}
