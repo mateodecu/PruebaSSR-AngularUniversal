@@ -5,9 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Rutas
 import { APP_ROUTING } from './app.routes'
 
-// Servicios
-import { DataService } from './services/data.service'
-
 // Componentes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -35,7 +32,6 @@ import { PlanetaComponent } from './planeta/planeta.component';
     APP_ROUTING
   ],
   providers: [
-    DataService
   ],
   bootstrap: [AppComponent]
 })

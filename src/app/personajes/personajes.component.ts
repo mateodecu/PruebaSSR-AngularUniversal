@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Personaje } from '../services/data.service'
+import { DataService } from '../services/data.service'
+import { Personaje } from '../model/personaje'
+import { OpenGraphService } from '../services/open-graph.service'
 
 @Component({
   selector: 'app-personajes',
@@ -12,12 +14,14 @@ export class PersonajesComponent implements OnInit {
 
   constructor(
     private _dataService: DataService,
+    private _openGraphService: OpenGraphService
   ) { }
 
   ngOnInit(): void {
-    this._dataService.getPersonajes().subscribe( (data: any) => {
+    this._dataService.getPersonajes().subscribe((data: any) => {
       this.personajes = data.results;
       this.cargado = true;
+      this._openGraphService.setOpenGraphTags(null, 'Personajes de Star Wars', 'La lista de todos los personajes de Star Wars.');
     })
   }
 }

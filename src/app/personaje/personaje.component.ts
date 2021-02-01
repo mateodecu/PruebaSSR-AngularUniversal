@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Personaje } from '../services/data.service'
+import { DataService } from '../services/data.service'
+import { Personaje } from '../model/personaje'
 import { ActivatedRoute } from '@angular/router'
-import { Title, Meta } from '@angular/platform-browser';
+import { OpenGraphService } from '../services/open-graph.service'
 
 @Component({
   selector: 'app-personaje',
@@ -15,16 +16,16 @@ export class PersonajeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private _dataService: DataService,
-    private metaService: Meta
-  ) {
-    this.activatedRoute.params.subscribe( data => {
-      this._dataService.getPersonaje(data['index']).subscribe( (data: any) => {
+    private _openGraphService: OpenGraphService
+  ) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(data => {
+      this._dataService.getPersonaje(data['index']).subscribe((data: any) => {
         this.personaje = data;
         this.cargado = true;
+        this._openGraphService.setOpenGraphTags(null, this.personaje.name, this.personaje.birth_year);
       })
     })
-    this.metaService.updateTag({ property: 'og:title', content: 'Titulo personaje' });
   }
-
-  ngOnInit(): void {}
 }

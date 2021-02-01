@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Planeta } from '../services/data.service'
+import { DataService } from '../services/data.service'
+import { Planeta } from '../model/planeta'
 import { ActivatedRoute } from '@angular/router'
+import { OpenGraphService } from '../services/open-graph.service'
 
 @Component({
   selector: 'app-planeta',
@@ -13,15 +15,17 @@ export class PlanetaComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _dataService: DataService
-  ) {
-    this.activatedRoute.params.subscribe( data => {
-      this._dataService.getPlaneta(data['index']).subscribe( (data: any) => {
+    private _dataService: DataService,
+    private _openGraphService: OpenGraphService
+  ) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(data => {
+      this._dataService.getPlaneta(data['index']).subscribe((data: any) => {
         this.planeta = data;
         this.cargado = true;
+        this._openGraphService.setOpenGraphTags(null, this.planeta.name, this.planeta.climate);
       })
     })
   }
-
-  ngOnInit(): void {}
 }

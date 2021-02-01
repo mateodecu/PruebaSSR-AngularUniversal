@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Planeta } from '../services/data.service'
+import { DataService } from '../services/data.service'
+import { Planeta } from '../model/planeta'
+import { OpenGraphService } from '../services/open-graph.service'
 
 @Component({
   selector: 'app-planetas',
@@ -12,12 +14,14 @@ export class PlanetasComponent implements OnInit {
 
   constructor(
     private _dataService: DataService,
+    private _openGraphService: OpenGraphService
   ) { }
 
   ngOnInit(): void {
-    this._dataService.getPlanetas().subscribe( (data: any) => {
+    this._dataService.getPlanetas().subscribe((data: any) => {
       this.planetas = data.results;
       this.cargado = true;
+      this._openGraphService.setOpenGraphTags(null, 'Planetas de Star Wars', 'La lista de todos los planetas de Star Wars.');
     })
   }
 }
