@@ -2,7 +2,8 @@
   <h3 class="title">Bienvenido a Star Wars App</h3>
   <hr>
   <p>Se trata de una simple aplicación Angular que utiliza la API de información sobre Star Wars (<a href="https://swapi.dev/" target="_blank">SWAPI</a>) para mostrar contenido y para ensayar el uso de Angular Universal para SSR</p>
-  <p>Para poder testear la renderización de Open Graph, se recomienda que instale la extension <a href="https://chrome.google.com/webstore/detail/localhost-open-graph-chec/gcbnmkhkglonipggglncobhklaegphgn" target="_blank">Localhost Open Graph Checker</a> en Google Chrome</p>
-  <p>Respecto de la aplicacion y prueba de Angular Universal, se siguen los pasos del <a href="https://angular.io/guide/universal#universal-tutorial" target="_blank">tutorial oficial de Angular</a></p>
+  <p>Para poder testear la correcta renderización de Open Graph, se recomienda utilizar el comando <span class="cli">&nbsp;wget -o <i>&lt;ruta de salida&gt; &lt;url&gt;</i>&nbsp;</span> que permite obtener el html entregado por Angular Universal</p>
+  <p>En caso de querer observar el formato en que una red social muestra el Open Graph, se recomienda que instale la extension <a href="https://chrome.google.com/webstore/detail/localhost-open-graph-chec/gcbnmkhkglonipggglncobhklaegphgn" target="_blank">Localhost Open Graph Checker</a> en Google Chrome. Tener en cuenta que esta extension no consulta el html entregado por el SSR sino que publica el html final renderizado por el cliente</p>
+  <p>Respecto de la configuración y prueba de Angular Universal, se siguen los pasos del <a href="https://angular.io/guide/universal#universal-tutorial" target="_blank">tutorial oficial de Angular</a></p>
   <p>Una vez creado del server-side module mediante el comando <span class="cli">&nbsp;ng add @nguniversal/express-engine&nbsp;</span> se procede a la implementacion de los Open Graph mediante el modelo planteado en el siguiente <a href="https://www.codinghub.net/article/update-meta-tags-dynamically-for-facebook-open-graph" target="_blank">tutorial</a></p>
 </div>
